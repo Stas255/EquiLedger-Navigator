@@ -1,20 +1,34 @@
-import { FunctionMap, Types, TypesKeys } from 'Types/index';
+import { FunctionMapInvoke, FunctionMapSend, TypesInputInvoke, TypesInputKeysInvoke, TypesInputKeysSend, TypesReturnSend } from 'Types/index';
 import { contextBridge, ipcRenderer } from 'electron';
 
-const test = getRender();
-contextBridge.exposeInMainWorld("electronRender",
-    test
-);
+contextBridge.exposeInMainWorld("electronRenderInvoke", getRenderInvoke());
 
-function getRender(): FunctionMap {
-    let obj: FunctionMap = {};
-    const arrayHandels :Array<TypesKeys> = [
+contextBridge.exposeInMainWorld("electronRenderSend", getRenderOn());
+
+function getRenderInvoke(): FunctionMapInvoke {
+    let obj: Partial<FunctionMapInvoke> = {};
+    const arrayHandels: Array<TypesInputKeysInvoke> = [
         "getSomeData",
+        "getDbPath",
+        "getDbData"
     ]
     arrayHandels.forEach(element => {
-        obj[element] = (arrgument: Types[typeof element]) => 
-        ipcRenderer.invoke(element, arrgument) ;
-        
+        obj[element] = (arrgument: TypesInputInvoke[typeof element]) =>
+            ipcRenderer.invoke(element, arrgument);
     });
-    return obj;
+    return obj as FunctionMapInvoke;
+}
+
+function getRenderOn(): FunctionMapSend {
+    let obj: Partial<FunctionMapSend> = {};
+    const eventHandlers: Array<TypesInputKeysSend> = [
+        "receiveError",
+        "getDbInfo"
+    ];
+
+    eventHandlers.forEach(element => {
+        obj[element] = (callback: (arrgument: any) => void) => ipcRenderer.on(element, (event, data: TypesReturnSend[typeof element]) => callback(data));
+    });
+
+    return obj as FunctionMapSend;
 }

@@ -1,26 +1,17 @@
-import { ipcMain, ipcRenderer } from "electron";
-import { TypesKeys, Types, TypesReturn, FunctionMap } from 'Types/index';
+import { ipcMain } from "electron";
+import { TypesInputKeysInvoke, TypesInputInvoke, TypesReturnInvoke, TypesInputKeysSend, TypesReturnSend } from 'Types/index';
 
 export class MainAPI {
 
-    createIpcMainHandle<K extends TypesKeys>
-        (channel: K, listener: (event: Electron.IpcMainInvokeEvent, arg: Types[K]) => TypesReturn[K]) {
+    createIpcMainHandle<K extends TypesInputKeysInvoke>
+        (channel: K, listener: (event: Electron.IpcMainInvokeEvent, arg: TypesInputInvoke[K]) => Promise<TypesReturnInvoke[K]>) {
         ipcMain.handle(channel, listener);
     }
 
-    getRender(): FunctionMap {
-        let obj: FunctionMap = {};
-        const arrayHandels :Array<TypesKeys> = typesKeys;
-        arrayHandels.forEach(element => {
-            obj[element] = (arrgument: Types[typeof element]) => 
-            ipcRenderer.invoke(element, arrgument) as Promise<TypesReturn[typeof element]>;
-            
-        });
-        return obj;
+    IpcMainSend<K extends TypesInputKeysSend>
+        (channel: K, webContents: Electron.WebContents, arg: TypesReturnSend[K]) {
+        webContents.send(channel, arg);
     }
-}
 
-const typesKeys: Array<TypesKeys> = [
-    "getSomeData",
-    "getSomeData1",
-];
+    
+}

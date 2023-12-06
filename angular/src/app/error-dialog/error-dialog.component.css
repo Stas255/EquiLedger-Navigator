@@ -1,0 +1,14 @@
+.error-dialog-content {
+    max-height: 60vh; /* Adjust as needed */
+    overflow-y: auto;
+  }
+  
+  .error-entry {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+  
+  .error-details {
+    flex-grow: 1;
+  }

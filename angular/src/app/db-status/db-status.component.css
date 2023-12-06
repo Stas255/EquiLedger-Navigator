@@ -1,0 +1,24 @@
+.db-status {
+    display: flex;
+    align-items: center;
+}
+
+.db-status mat-icon {
+    margin-right: 8px;
+}
+
+.icon-connecting {
+    color: orange;
+}
+
+.icon-error {
+    color: red;
+}
+
+.icon-connected {
+    color: green;
+}
+
+.icon-no-started {
+    color: grey;
+}
