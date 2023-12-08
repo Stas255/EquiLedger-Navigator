@@ -15,12 +15,22 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DbStatusComponent } from './db-status/db-status.component';
 import { CommonModule } from '@angular/common';
+import { ReceiptFundsInputComponent } from './components/receipt-funds-input/receipt-funds-input.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import {MatStepperModule} from '@angular/material/stepper';
+import { MatSelectModule } from '@angular/material/select';
+
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     ErrorDialogComponent,
-    DbStatusComponent
+    DbStatusComponent,
+    ReceiptFundsInputComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +44,15 @@ import { CommonModule } from '@angular/common';
     MatBadgeModule,
     MatIconModule,
     MatExpansionModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatStepperModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
