@@ -17,7 +17,7 @@ export interface ReceiptFundsAttributes {
 
 //Сума надходження
 export interface ReceiptAmountAttributes {
-    name: ReceiptAmountNameAttributes; // назва
+    receipt: ReceiptAmountNameAttributes; // квитанція
     currency: СurrencyNameAttributes; //валюта
     amount: number; //сума float
     amount_at_nbu_exchange_rate: number; //Сума за курсом НБУ float
@@ -42,7 +42,7 @@ export interface DonorsAttributes {
 
 //Благодійники назва
 export interface DonorsNameAttributes {
-    name: string // фізична особа | юридична особа | грантодавці
+    type: string // фізична особа | юридична особа | грантодавці
 }
 
 //Надходження від продажу валюти

@@ -1,0 +1,11 @@
+@media (max-width: 600px) {
+    .mat-mdc-form-field {
+        width: 100%;
+    }
+}
+
+@media (min-width: 601px) {
+    .mat-mdc-form-field {
+        width: 300px;
+    }
+}
