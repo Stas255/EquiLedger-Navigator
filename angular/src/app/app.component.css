@@ -1,0 +1,14 @@
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+  }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

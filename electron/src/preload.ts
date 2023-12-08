@@ -1,37 +1,50 @@
+import { FunctionMapInvoke, FunctionMapSend, FunctionMapSendToMain, TypesInputInvoke, TypesInputKeysInvoke, TypesReturnKeysSend, TypesReturnSend, TypesSendKeysToMain, TypesSendToMain } from 'Types/index';
 import { contextBridge, ipcRenderer } from 'electron';
 
-const test = getRender();
-contextBridge.exposeInMainWorld("electronRender",
-    test
-);
+contextBridge.exposeInMainWorld("electronRenderInvoke", getRenderInvoke());
 
-function getRender(): FunctionMap {
-    let obj: FunctionMap = {};
-    const arrayHandels :Array<TypesKeys> = [
+contextBridge.exposeInMainWorld("electronRenderSend", getRenderOn());
+
+contextBridge.exposeInMainWorld("electronRenderSendToMain", getSendToMain());
+
+function getRenderInvoke(): FunctionMapInvoke {
+    let obj: Partial<FunctionMapInvoke> = {};
+    const arrayHandels: Array<TypesInputKeysInvoke> = [
         "getSomeData",
+        "getDbPath",
+        "getDbData"
     ]
     arrayHandels.forEach(element => {
-        obj[element] = (arrgument: Types[typeof element]) => 
-        ipcRenderer.invoke(element, arrgument) as Promise<TypesReturn[typeof element]>;
-        
+        obj[element] = (arrgument: TypesInputInvoke[typeof element]) =>
+            ipcRenderer.invoke(element, arrgument);
     });
-    return obj;
+    return obj as FunctionMapInvoke;
 }
 
-type Types = {
-    getSomeData: boolean,
-    getSomeData1: boolean
+function getRenderOn(): FunctionMapSend {
+    let obj: Partial<FunctionMapSend> = {};
+    const eventHandlers: Array<TypesReturnKeysSend> = [
+        "receiveError",
+        "getDbInfo"
+    ];
+
+    eventHandlers.forEach(element => {
+        obj[element] = (callback: (arrgument: any) => void) => ipcRenderer.on(element, (event, data: TypesReturnSend[typeof element]) => callback(data));
+    });
+
+    return obj as FunctionMapSend;
 }
 
-type TypesReturn = {
-    getSomeData: number,
-    getSomeData1: boolean
+
+function getSendToMain(): FunctionMapSendToMain {
+    let obj: Partial<FunctionMapSendToMain> = {};
+    const eventHandlers: Array<TypesSendKeysToMain> = [
+        "sendError"
+    ];
+
+    eventHandlers.forEach(element => {
+        obj[element] = (arrgument: TypesSendToMain[typeof element]) => ipcRenderer.send(element, arrgument);
+    });
+
+    return obj as FunctionMapSendToMain;
 }
-
-type FunctionMap = {
-    [key: string]: (arr: Types[TypesKeys]) => void;
-};
-
-type TypesKeys = keyof Types;
-
-

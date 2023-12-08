@@ -1,0 +1,286 @@
+<mxfile host="app.diagrams.net" modified="2023-11-29T11:05:40.277Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="iJsa7NKXGKKwrbCPF0sn" version="22.1.4" type="device">
+  <diagram name="Страница — 1" id="2W1QM36__aYLuH-ujat9">
+    <mxGraphModel dx="2543" dy="821" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-16" value="Банк" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="760" y="90" width="160" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-17" value="Надходження коштів на банківські рахунки" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-16" vertex="1">
+          <mxGeometry y="26" width="160" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-18" value="Списання коштів з банківських рахунків" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-16" vertex="1">
+          <mxGeometry y="80" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-23" value="&lt;i style=&quot;border-color: var(--border-color);&quot;&gt;Надходження коштів на банківські рахунки&lt;/i&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-90" y="370" width="400" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-24" value="+ Дата: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-23" vertex="1">
+          <mxGeometry y="26" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-25" value="+ Номер вхідного документу: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-23" vertex="1">
+          <mxGeometry y="52" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-35" value="+ Сума надходження: object" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-23" vertex="1">
+          <mxGeometry y="78" width="400" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-44" value="+ Благодійники: object" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-23" vertex="1">
+          <mxGeometry y="110" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-49" value="+ Надходження від продажу валюти: object" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-23" vertex="1">
+          <mxGeometry y="136" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-56" value="+ Бухгалтерська проводка: object" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-23" vertex="1">
+          <mxGeometry y="162" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-45" value="Благодійники" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-780" y="622" width="360" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-46" value="+ нава: object" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-45" vertex="1">
+          <mxGeometry y="26" width="360" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-48" value="+ Призначення платежу: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-45" vertex="1">
+          <mxGeometry y="50" width="360" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-47" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-44" target="ZAK2pMCXlUJXXpJkw1UA-45" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-340" y="460" as="sourcePoint" />
+            <mxPoint x="-290" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-50" value="Надходження від продажу валюти" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-400" y="622" width="240" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-51" value="+ Дата: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-50" vertex="1">
+          <mxGeometry y="26" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-52" value="+&amp;nbsp;гривні від продажу: float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-50" vertex="1">
+          <mxGeometry y="52" width="240" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-53" value="+ Сума курсової різниці: float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-50" vertex="1">
+          <mxGeometry y="80" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-54" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-49" target="ZAK2pMCXlUJXXpJkw1UA-50" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="60" y="620" as="sourcePoint" />
+            <mxPoint x="110" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-55" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-17" target="ZAK2pMCXlUJXXpJkw1UA-23" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="270" as="sourcePoint" />
+            <mxPoint x="200" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-57" value="Бухгалтерська проводка" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="380" y="820" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-58" value="+ Д-т: number" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-57" vertex="1">
+          <mxGeometry y="26" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-59" value="+&amp;nbsp;К-т: number" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-57" vertex="1">
+          <mxGeometry y="52" width="240" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-61" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-56" target="ZAK2pMCXlUJXXpJkw1UA-57" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-40" y="670" as="sourcePoint" />
+            <mxPoint x="10" y="620" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="545" />
+              <mxPoint x="400" y="790" />
+              <mxPoint x="500" y="790" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-62" value="&lt;i style=&quot;border-color: var(--border-color);&quot;&gt;Списання коштів з банківських рахунків&lt;/i&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="970" y="292" width="400" height="332" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-63" value="+ Дата: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-62" vertex="1">
+          <mxGeometry y="26" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-64" value="+ Номер вхідного документу: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-62" vertex="1">
+          <mxGeometry y="52" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-65" value="+ Сума списання: object(АТ КБ &quot;ПРИВАТБАНК&quot; UA483375460000026001015201967 (грн) |&amp;nbsp;АТ &quot;УНІВЕРСАЛ БАНК&quot; UA683220010000026009490001143 (грн) |&amp;nbsp;АТ КБ &quot;ПРИВАТБАНК&quot; UA063375460000026009035200553 (дол))" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-62" vertex="1">
+          <mxGeometry y="78" width="400" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-66" value="+ Призначення платежу: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-62" vertex="1">
+          <mxGeometry y="150" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-68" value="+ Оплата за товари (надані послуги): object? - тільки гривня" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-62" vertex="1">
+          <mxGeometry y="176" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-81" value="+ Плата за РКО: string?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-62" vertex="1">
+          <mxGeometry y="202" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-82" value="+ Списання комісії на здійснення валютообмінної операції: string?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-62" vertex="1">
+          <mxGeometry y="228" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-83" value="+ Оплата заробітної плати /винагорода за&amp;nbsp; договором ЦПХ: object?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-62" vertex="1">
+          <mxGeometry y="254" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-91" value="+ Інші списання коштів: object?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-62" vertex="1">
+          <mxGeometry y="280" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-93" value="+ Бухгалтерська проводка: object" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-62" vertex="1">
+          <mxGeometry y="306" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-69" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-18" target="ZAK2pMCXlUJXXpJkw1UA-62" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1030" y="180" as="sourcePoint" />
+            <mxPoint x="1080" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-70" value="Оплата за товари (надані послуги)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1430" y="510" width="240" height="176" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-71" value="+ Вид: object" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-70" vertex="1">
+          <mxGeometry y="26" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="wFl47jH_81lm-Rvwh0qE-1" value="+ Назва: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-70" vertex="1">
+          <mxGeometry y="52" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-72" value="+&amp;nbsp;Контрагент: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-70" vertex="1">
+          <mxGeometry y="78" width="240" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-73" value="+ Номер&amp;nbsp; та дата договору з контрагентом: object" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-70" vertex="1">
+          <mxGeometry y="106" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-79" value="+ Номер та дата&amp;nbsp; рахунку (акту): object" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-70" vertex="1">
+          <mxGeometry y="146" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-74" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-68" target="ZAK2pMCXlUJXXpJkw1UA-70" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1520" y="460" as="sourcePoint" />
+            <mxPoint x="1570" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-75" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-73" target="ZAK2pMCXlUJXXpJkw1UA-76" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1880" y="630" as="sourcePoint" />
+            <mxPoint x="1930" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-76" value="Номер&amp;nbsp; та дата" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1660" y="728" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-77" value="+ Номер: number" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-76" vertex="1">
+          <mxGeometry y="26" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-78" value="+ Дата: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-76" vertex="1">
+          <mxGeometry y="52" width="240" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-80" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-79" target="ZAK2pMCXlUJXXpJkw1UA-76" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1820" y="620" as="sourcePoint" />
+            <mxPoint x="1870" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-84" value="Оплата заробітної плати /винагорода за&amp;nbsp; договором ЦПХ" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1250" y="800" width="300" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-85" value="+ ПДФО 18%: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-84" vertex="1">
+          <mxGeometry y="26" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-86" value="+&amp;nbsp;Військовий збір 1,5%: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-84" vertex="1">
+          <mxGeometry y="52" width="300" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-87" value="+ Перерахування на картковий рахунок: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-84" vertex="1">
+          <mxGeometry y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-88" value="+ Сплата ЄСВ 22%: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="ZAK2pMCXlUJXXpJkw1UA-84" vertex="1">
+          <mxGeometry y="110" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-83" target="ZAK2pMCXlUJXXpJkw1UA-84" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1400" y="559" />
+              <mxPoint x="1400" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZAK2pMCXlUJXXpJkw1UA-95" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-93" edge="1" target="ZAK2pMCXlUJXXpJkw1UA-57">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="980" y="611" as="sourcePoint" />
+            <mxPoint x="510" y="1030" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="880" y="611" />
+              <mxPoint x="880" y="790" />
+              <mxPoint x="500" y="790" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-1" value="Благодійники-типи" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-1160" y="686" width="360" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-2" value="+ Назва: string(фізична особа | юридична особа |грантодавці)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="xyEo5K0Ov0sv706nt5WW-1" vertex="1">
+          <mxGeometry y="26" width="360" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-46" target="xyEo5K0Ov0sv706nt5WW-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-5" value="Оплата за товари (надані послуги) - вид" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1780" y="580" width="240" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-6" value="+ Вид: string(Товар | Послуга)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="xyEo5K0Ov0sv706nt5WW-5" vertex="1">
+          <mxGeometry y="26" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-71" target="xyEo5K0Ov0sv706nt5WW-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-13" value="Сума надходження - тип" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="400" y="370" width="310" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-14" value="+ назва: object" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="xyEo5K0Ov0sv706nt5WW-13" vertex="1">
+          <mxGeometry y="26" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-15" value="+ валюта назва: object" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="xyEo5K0Ov0sv706nt5WW-13" vertex="1">
+          <mxGeometry y="52" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-16" value="+ сума: float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="xyEo5K0Ov0sv706nt5WW-13" vertex="1">
+          <mxGeometry y="78" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-17" value="+ Сума за курсом НБУ: float - валюта = долар" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="xyEo5K0Ov0sv706nt5WW-13" vertex="1">
+          <mxGeometry y="104" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-18" value="+ Курс НБУ під час створення: float - валюта = долар" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="xyEo5K0Ov0sv706nt5WW-13" vertex="1">
+          <mxGeometry y="130" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-19" value="Сума надходження назва - тип" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="610" width="310" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-20" value="+ назва: string(&lt;br&gt;АТ &quot;УНІВЕРСАЛ БАНК&quot; UA683220010000026009490001143 |&lt;br&gt;АТ КБ &quot;ПРИВАТБАНК&quot; UA483375460000026001015201967 |&lt;br&gt;АТ КБ &quot;ПРИВАТБАНК&quot; UA063375460000026009035200553&lt;br&gt;)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="xyEo5K0Ov0sv706nt5WW-19" vertex="1">
+          <mxGeometry y="26" width="310" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="xyEo5K0Ov0sv706nt5WW-14" target="xyEo5K0Ov0sv706nt5WW-19" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="730" y="409" />
+              <mxPoint x="730" y="580" />
+              <mxPoint x="655" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ZAK2pMCXlUJXXpJkw1UA-35" target="xyEo5K0Ov0sv706nt5WW-13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-29" value="Валюта назва - тип" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="420" y="546" width="180" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-30" value="+ валюта: string(гривня|долар)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="xyEo5K0Ov0sv706nt5WW-29" vertex="1">
+          <mxGeometry y="26" width="180" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="xyEo5K0Ov0sv706nt5WW-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="xyEo5K0Ov0sv706nt5WW-15" target="xyEo5K0Ov0sv706nt5WW-29" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380" y="435" />
+              <mxPoint x="380" y="530" />
+              <mxPoint x="510" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Errors Occurred</h2>
+<mat-dialog-content class="error-dialog-content">
+  <mat-accordion multi>
+    <mat-expansion-panel *ngFor="let error of paginatedErrors; let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Error {{ i + (currentPage * pageSize) + 1 }}: {{ error.message | slice:0:50 }}...
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="error-details">
+        <p><strong>Full Message:</strong> {{ error.message }}</p>
+        <p><strong>Timestamp:</strong> {{ error.timestamp | date:'medium' }}</p>
+        <p *ngIf="error.errorCode"><strong>Error Code:</strong> {{ error.errorCode }}</p>
+        <p><strong>Severity:</strong> {{ error.severity }}</p>
+        <p *ngIf="error.source"><strong>Source:</strong> {{ error.source }}</p>
+        <p *ngIf="error.stackTrace"><strong>Stack Trace:</strong><br>{{ error.stackTrace }}</p>
+        <p *ngIf="error.userContext"><strong>User Context:</strong> {{ error.userContext }}</p>
+      </div>
+      <mat-action-row>
+        <button mat-button color="warn" (click)="removeError(i + (currentPage * pageSize))">Delete</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-paginator [length]="data.length" [pageSize]="pageSize" [pageSizeOptions]="[pageSize]" (page)="changePage($event)">
+  </mat-paginator>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button color="warn" (click)="deleteAllErrors()">Delete All</button>
+</mat-dialog-actions>
