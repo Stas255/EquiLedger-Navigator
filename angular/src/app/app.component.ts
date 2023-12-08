@@ -42,7 +42,9 @@ export class AppComponent {
       })
     );
     this.electronRenderService.listenToMainProcess('getDbInfo', async (data) => {
-      this.currentDbStatus = data;
+      this.zone.run(() => {
+        this.currentDbStatus = data;
+      });
     });
   }
 

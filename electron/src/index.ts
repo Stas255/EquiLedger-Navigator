@@ -3,6 +3,7 @@ import path from "node:path";
 import { MainAPI } from "./classes/MainAPI";
 import { SequelizeDB } from "./classes/SequelizeDB";
 import { ErrorParser } from "./classes/ErrorParser";
+import { ErrorDetail } from "Types/error";
 
 let mainWindow: BrowserWindow;
 const mainAPI = new MainAPI();
@@ -24,6 +25,10 @@ async function createWindows() {
     //mainWindow.on("ready-to-show", () => mainWindow.show());
 }
 
+function handleError(event: Electron.IpcMainInvokeEvent, arg: ErrorDetail) {
+    mainAPI.IpcMainSend("receiveError", mainWindow.webContents, arg);
+}
+
 app.whenReady().then(async () => {
     const sequelizeDB = new SequelizeDB();
     sequelizeDB.connect().then(() => {
@@ -40,6 +45,8 @@ app.whenReady().then(async () => {
         const test = await sequelizeDB.insertData();
         return test;
     });
+
+    mainAPI.IpcMainOn("sendError", handleError);
 
     await createWindows()
     setInterval(() => {

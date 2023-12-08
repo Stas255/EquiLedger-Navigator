@@ -37,11 +37,20 @@ export type TypesReturnSend = {
     getDbInfo: DbInfo
 }
 
-export type TypesInputKeysSend = keyof TypesReturnSend;
+export type TypesReturnKeysSend = keyof TypesReturnSend;
 
 export type FunctionMapSend = {
-    [K in keyof TypesReturnSend]: (callback: (arrgument: TypesReturnSend[K]) => void) => Electron.IpcRenderer;
+    [K in keyof TypesReturnSend]: (callback: (arrgument: TypesReturnSend[K]) => void) => void;
 };
 
 //----------IPC ON Angular->SEND Electron->ON------------------------------//
 
+export type TypesSendToMain = {
+    sendError: ErrorDetail
+}
+
+export type TypesSendKeysToMain = keyof TypesSendToMain;
+
+export type FunctionMapSendToMain = {
+    [K in keyof TypesSendToMain]: (arrgument: TypesSendToMain[K]) => void;
+};

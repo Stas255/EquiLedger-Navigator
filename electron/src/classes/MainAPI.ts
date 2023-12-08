@@ -1,5 +1,5 @@
 import { ipcMain } from "electron";
-import { TypesInputKeysInvoke, TypesInputInvoke, TypesReturnInvoke, TypesInputKeysSend, TypesReturnSend } from 'Types/index';
+import { TypesInputKeysInvoke, TypesInputInvoke, TypesReturnInvoke, TypesReturnKeysSend, TypesReturnSend, TypesSendKeysToMain, TypesSendToMain } from 'Types/index';
 
 export class MainAPI {
 
@@ -8,10 +8,13 @@ export class MainAPI {
         ipcMain.handle(channel, listener);
     }
 
-    IpcMainSend<K extends TypesInputKeysSend>
+    IpcMainSend<K extends TypesReturnKeysSend>
         (channel: K, webContents: Electron.WebContents, arg: TypesReturnSend[K]) {
         webContents.send(channel, arg);
     }
 
-    
+    IpcMainOn<K extends TypesSendKeysToMain>
+        (channel: K, listener: (event: Electron.IpcMainInvokeEvent, arg: TypesSendToMain[K]) => void) {
+        ipcMain.on(channel, listener);
+    }
 }
