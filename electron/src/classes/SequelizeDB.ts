@@ -1,8 +1,8 @@
 import { Association, FindOptions, Includeable, Model, ModelStatic, Sequelize } from 'sequelize';
 import { DbInfo } from 'Types/sequelizeDBTypes';
-import { UserAttributes } from 'Types/index';
-import models from '../lib/sequelize/models';
 import { User, sequelize, storagePath } from '../lib/sequelize';
+import { Names, UserAttributes } from '../lib/sequelize/models/user.model';
+import models from '../lib/sequelize/models';
 
 interface ModelCreationAttributes<M extends Model> {
     [key: string]: any; // You can replace 'any' with more specific types if possible
@@ -31,6 +31,7 @@ export class SequelizeDB {
                 .then(async () => {
                     this._infor.connection = 'connected';
                     await sequelize.sync({ force: true });
+                    this.insertData();
                     resolve();
                 })
                 .catch(err => {
@@ -81,9 +82,9 @@ export class SequelizeDB {
             const instance = await model.findOne({
                 ...options,
                 include: Object.values(associatedModels),
-                raw: true,
+                //raw: true,
             });
-            return instance;
+            return instance?.get({ plain: true });
         } catch (error) {
             console.error(`Error retrieving ${modelName}:`, error);
             throw error;
@@ -102,7 +103,17 @@ export class SequelizeDB {
     insertData(): Promise<UserAttributes> {
         return new Promise(async (resolve, reject) => {
             const user = await this.saveUser({
-                name: 'John Doe',
+                name: {
+                    name: 'John Doe',
+                },
+                email: {
+                    name: 'john@example.com'
+                }
+            });
+            await this.saveUser({
+                name: {
+                    name: 'John Doe',
+                },
                 email: {
                     name: 'john@example.com'
                 }
@@ -116,13 +127,19 @@ export class SequelizeDB {
                 include: Object.values(models.User.associations)
             });
 
-            const ourUser = await models.User.findByPk(1, {
-                include: Object.values(models.User.associations),
-                raw: true,
-            }) as UserAttributes;*/
+            const ourUser1 = await models.User.findByPk(2, {
+                include: [{
+                    model:models.Email,
+                    as: 'email',
+                },{
+                    model:Names,
+                    as: 'name',
+                }],
+            }) as Model<any, any>;*/
             const ourUser = await this.getUser({
-                where: { id: 1 }
+                where: { id: 2 }
             }) as User;
+            console.log(ourUser);
             resolve(ourUser);
         });
     }

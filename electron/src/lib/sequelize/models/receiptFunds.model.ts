@@ -1,5 +1,18 @@
-/*import { ReceiptFundsAttributes } from 'Types/sequelizeDBTypes';
+import { ReceiptFundsAttributes } from 'Types/sequelizeDBTypes';
 import { Model, DataTypes, NonAttribute, Association, ForeignKey, HasManyCreateAssociationMixin, CreationOptional, InferAttributes, InferCreationAttributes, HasOneCreateAssociationMixin, Sequelize } from 'sequelize';
+import { ReceiptAmount } from './receiptAmount.model';
+import { Donors } from './donors.model';
+import { CurrencySaleProceeds } from './currencySaleProceeds.model';
+import { AccountingEntry } from './accountingEntry.model';
+
+/*export interface ReceiptFundsAttributes {
+    date: Date;
+    input_document_number: string; //Номер вхідного документу
+    receipt_amount: ReceiptAmountAttributes //Сума надходження
+    donors: DonorsAttributes //Благодійники
+    currency_sale_proceeds: CurrencySaleProceedsAttributes //Надходження від продажу валюти
+    accounting_entry: AccountingEntryAttributes //Бухгалтерська проводка
+}*/
 
 export class ReceiptFunds
   extends Model<Omit<ReceiptFundsAttributes, 'receipt_amount' |'donors'|'currency_sale_proceeds'|'accounting_entry'>,
@@ -37,4 +50,4 @@ export class ReceiptFunds
 
     return ReceiptFunds;
   }
-}*/
+}

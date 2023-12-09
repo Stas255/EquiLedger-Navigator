@@ -18,8 +18,8 @@ async function createWindows() {
         show: false
     });
 
-    //mainWindow.loadFile(path.join(__dirname + "/browser/index.html"));
-    await mainWindow.loadURL('http://localhost:4200/');
+    mainWindow.loadFile(path.join(__dirname + "/browser/index.html"));
+    //await mainWindow.loadURL('http://localhost:4200/');
     mainWindow.webContents.openDevTools();
     mainWindow.show();
     //mainWindow.on("ready-to-show", () => mainWindow.show());

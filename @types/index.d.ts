@@ -14,17 +14,6 @@ export type TypesReturnInvoke = {
     getDbData: UserAttributes,
 }
 
-export interface EmailAttributes {
-    id?: number;
-    name: string;
-}
-
-export interface UserAttributes {
-    //id: number;
-    name: string;
-    email: EmailAttributes;
-}
-
 export type TypesInputKeysInvoke = keyof TypesInputInvoke;
 
 export type FunctionMapInvoke = {
