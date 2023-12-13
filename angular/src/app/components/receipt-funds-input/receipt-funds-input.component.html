@@ -19,32 +19,26 @@
       <input matInput formControlName="input_document_number">
     </mat-form-field>
   </div>
-  
+
   <mat-vertical-stepper #stepper>
     <mat-step formGroupName="receipt_amount">
       <ng-template matStepLabel>Сума надходження</ng-template>
-      <div formGroupName="receipt">
-        <mat-form-field>
-          <mat-label>Квитанція</mat-label>
-          <mat-select formControlName="name">
-            <mat-option value='АТ "УНІВЕРСАЛ БАНК" UA683220010000026009490001143'>АТ "УНІВЕРСАЛ БАНК"
-              UA683220010000026009490001143</mat-option>
-            <mat-option value='АТ КБ "ПРИВАТБАНК" UA483375460000026001015201967'>АТ КБ "ПРИВАТБАНК"
-              UA483375460000026001015201967</mat-option>
-            <mat-option value='АТ КБ "ПРИВАТБАНК" UA063375460000026009035200553'>АТ КБ "ПРИВАТБАНК"
-              UA063375460000026009035200553</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div formGroupName="currency">
-        <mat-form-field>
-          <mat-label>Валюта</mat-label>
-          <mat-select formControlName="currencyName">
-            <mat-option value="гривня">гривня</mat-option>
-            <mat-option value="долар">долар</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+      <mat-form-field>
+        <mat-label>Квитанція</mat-label>
+        <mat-select formControlName="receiptNameId">
+          <mat-option *ngFor="let receiptAmount of listReceiptAmountNames" [value]="receiptAmount.id">
+            {{ receiptAmount.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Валюта</mat-label>
+        <mat-select formControlName="currencyNameId">
+          <mat-option *ngFor="let currency of listCurrencyNames" [value]="currency.id">
+            {{ currency.currencyName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
       <div>
         <mat-form-field>
           <mat-label>Сума</mat-label>
@@ -65,16 +59,14 @@
       <ng-template matStepLabel>Благодійники</ng-template>
       <!-- Благодійники Group -->
 
-      <div formGroupName="name">
-        <mat-form-field>
-          <mat-label>Назва</mat-label>
-          <mat-select formControlName="type">
-            <mat-option value="фізична особа">фізична особа</mat-option>
-            <mat-option value="юридична особа">юридична особа</mat-option>
-            <mat-option value="грантодавці">грантодавці</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+      <mat-form-field>
+        <mat-label>Назва</mat-label>
+        <mat-select formControlName="donorNameId">
+          <mat-option *ngFor="let donor of listDonorsNames" [value]="donor.id">
+            {{ donor.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
       <mat-form-field>
         <mat-label>Призначення платежу</mat-label>
         <input matInput formControlName="payment_purpose">

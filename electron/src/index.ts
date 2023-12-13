@@ -4,6 +4,7 @@ import { MainAPI } from "./classes/MainAPI";
 import { SequelizeDB } from "./classes/SequelizeDB";
 import { ErrorParser } from "./classes/ErrorParser";
 import { ErrorDetail } from "Types/error";
+import { CurrencyNameAttributes, DonorsNameAttributes, ReceiptAmountNameAttributes } from "Types/sequelizeDBTypes";
 
 let mainWindow: BrowserWindow;
 const mainAPI = new MainAPI();
@@ -18,8 +19,8 @@ async function createWindows() {
         show: false
     });
 
-    mainWindow.loadFile(path.join(__dirname + "/browser/index.html"));
-    //await mainWindow.loadURL('http://localhost:4200/');
+    //mainWindow.loadFile(path.join(__dirname + "/browser/index.html"));
+    await mainWindow.loadURL('http://localhost:4200/');
     mainWindow.webContents.openDevTools();
     mainWindow.show();
     //mainWindow.on("ready-to-show", () => mainWindow.show());
@@ -41,9 +42,17 @@ app.whenReady().then(async () => {
         return sequelizeDB.pathFile;
     });
 
-    mainAPI.createIpcMainHandle("getDbData", async (event, arg) => {
-        const test = await sequelizeDB.insertData();
-        return test;
+    mainAPI.createIpcMainHandle("getReceiptAmountNames", async (event, arg) => {
+        const t = await sequelizeDB.getAllReceiptAmountNames();
+        return t as ReceiptAmountNameAttributes[];
+    });
+    mainAPI.createIpcMainHandle("getCurrencyNames", async (event, arg) => {
+        const t = await sequelizeDB.getAllCurrencyNames();
+        return t as CurrencyNameAttributes[];
+    });
+    mainAPI.createIpcMainHandle("getDonorsNames", async (event, arg) => {
+        const t = await sequelizeDB.getAllDonorsNames();
+        return t as DonorsNameAttributes[];
     });
 
     mainAPI.IpcMainOn("sendError", handleError);

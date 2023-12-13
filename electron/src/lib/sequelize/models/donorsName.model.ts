@@ -6,14 +6,14 @@ import { DonorsNameAttributes } from "Types/sequelizeDBTypes";
 import { CreationOptional, DataTypes, Model, Sequelize } from "sequelize";
 
 export class DonorsName
-    extends Model<DonorsNameAttributes,
+    extends Model<Omit<DonorsNameAttributes, 'id'>,
         Omit<DonorsNameAttributes, 'id'>> {
     declare id: CreationOptional<number>;
-    declare type: string;
+    declare name: string;
 
     static initModel(sequelize: Sequelize): typeof DonorsName {
         DonorsName.init({
-            type: {
+            name: {
                 type: DataTypes.STRING,
                 validate: {
                     isIn: [['фізична особа',

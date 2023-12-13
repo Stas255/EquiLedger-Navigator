@@ -3,7 +3,7 @@ import { app } from 'electron';
 import { Sequelize } from "sequelize";
 import { Donors } from './models/donors.model';
 import { AccountingEntry } from './models/accountingEntry.model';
-import { СurrencyName } from './models/currencyName.model';
+import { CurrencyName } from './models/currencyName.model';
 import { CurrencySaleProceeds } from './models/currencySaleProceeds.model';
 import { DonorsName } from './models/donorsName.model';
 import { ReceiptAmount } from './models/receiptAmount.model';
@@ -27,49 +27,78 @@ Names.initModel(sequelize);
 ReceiptFunds.initModel(sequelize);
 ReceiptAmount.initModel(sequelize);
 ReceiptAmountName.initModel(sequelize);
-СurrencyName.initModel(sequelize);
+CurrencyName.initModel(sequelize);
 Donors.initModel(sequelize);
 DonorsName.initModel(sequelize);
 CurrencySaleProceeds.initModel(sequelize);
 AccountingEntry.initModel(sequelize);
 
-User.hasOne(Email, {
+/*User.hasOne(Email, {
     foreignKey: 'userId',
+    as: 'email'
+});*/
+
+User.belongsTo(Email, {
+    foreignKey: 'emailId',
     as: 'email'
 });
 
 User.belongsTo(Names, {
-    foreignKey: 'namesId',
+    foreignKey: 'nameId',
     as: 'name'
 });
 
-
-ReceiptFunds.hasOne(ReceiptAmount,
+//ReceiptFunds
+ReceiptFunds.belongsTo(ReceiptAmount,
     {
-        foreignKey: 'receiptFundsId',
-        as: 'ReceiptAmount'
+        foreignKey: 'receiptAmountId',
+        as: 'receipt_amount'
     });
 
-ReceiptAmountName.hasMany(ReceiptAmount,
+ReceiptFunds.belongsTo(Donors,
     {
-        foreignKey: 'ReceiptAmountId',
-        as: 'ReceiptAmount'
+        foreignKey: 'donorId',
+        as: 'donors'
     });
 
-СurrencyName.hasMany(ReceiptAmount,
+ReceiptFunds.belongsTo(CurrencySaleProceeds,
     {
-        foreignKey: 'СurrencyNameId',
-        as: 'ReceiptAmount'
+        foreignKey: 'currencySaleProceedsId',
+        as: 'currency_sale_proceeds'
     });
 
+ReceiptFunds.belongsTo(AccountingEntry,
+    {
+        foreignKey: 'accountingEntryId',
+        as: 'accounting_entry'
+    });
 
+//ReceiptAmount
+ReceiptAmount.belongsTo(ReceiptAmountName,
+    {
+        foreignKey: 'receiptNameId',
+        as: 'receiptName'
+    });
+
+ReceiptAmount.belongsTo(CurrencyName,
+    {
+        foreignKey: 'currencyNameId',
+        as: 'currencyName'
+    });
+
+//Donors
+Donors.belongsTo(DonorsName,
+    {
+        foreignKey: 'donorNameId',
+        as: 'donorName'
+    });
 
 export {
     Email, User,
     ReceiptFunds,
     ReceiptAmount,
     ReceiptAmountName,
-    СurrencyName,
+    CurrencyName,
     Donors,
     DonorsName,
     CurrencySaleProceeds,

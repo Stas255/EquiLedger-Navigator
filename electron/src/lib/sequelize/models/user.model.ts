@@ -11,16 +11,14 @@ export interface NamesAttributes {
 
 
 export interface UserAttributes {
-  //id: number;
   name?: NamesAttributes;
-  email?: EmailAttributes;
-  nameId?:number;
+  email:EmailAttributes;
+  nameId:number;
 }
 
-export class User extends Model<UserAttributes> {
+export class User extends Model<Omit<UserAttributes, 'email'>, Omit<UserAttributes, 'id'>>  {
   declare id: CreationOptional<number>;
-  //declare name: string;
-  //declare createEmail: HasOneCreateAssociationMixin<Email>;
+  declare nameId: number;
 
   declare email: NonAttribute<Email>;
   declare name: NonAttribute<Names>;
@@ -32,25 +30,14 @@ export class User extends Model<UserAttributes> {
 
   static initModel(sequelize: Sequelize): typeof User {
     User.init({
+      nameId: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
+      }
     }, {
       //tableName: 'users',
       sequelize, // передача екземпляру sequelize
     });
-
-    User.addHook('beforeCreate', async (user, options) => {
-      // Assuming 'user' has a 'name' attribute with the name value
-      let name = (user as UserAttributes).name?.name;
-  
-      // Check if the name already exists
-      const [nameInstance] = await Names.findOrCreate({
-          where: { name: name }
-      });
-  
-      // Associate the found or created name with the user
-      // You need to make sure this association is correctly established
-      (user as UserAttributes).name = undefined;
-      (user as UserAttributes).nameId = nameInstance.id;
-  });
 
     return User;
   }
@@ -65,11 +52,9 @@ export class Names extends Model<Omit<NamesAttributes, 'userId'>, Omit<NamesAttr
       name: {
         type: new DataTypes.STRING(128),
         allowNull: false,
-        //unique:true
       }
     }, {
-      //tableName: 'emails',
-      sequelize, // передача екземпляру sequelize
+      sequelize,
     });
 
     return Names;
@@ -83,18 +68,12 @@ export class Email extends Model<Omit<EmailAttributes, 'userId'>, Omit<EmailAttr
 
   static initModel(sequelize: Sequelize): typeof Email {
     Email.init({
-      id: {
-        type: DataTypes.INTEGER.UNSIGNED,
-        autoIncrement: true,
-        primaryKey: true
-      },
       name: {
         type: new DataTypes.STRING(128),
         allowNull: false,
       }
     }, {
-      //tableName: 'emails',
-      sequelize, // передача екземпляру sequelize
+      sequelize,
     });
 
     return Email;

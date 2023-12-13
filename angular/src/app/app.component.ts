@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
 import { ElectronRenderService } from './service/electron-render/electron-render.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 import { ErrorService } from './service/error/error.service';
 import { DbInfo } from 'Types/sequelizeDBTypes';
 import { Subscription } from 'rxjs';
@@ -27,7 +27,6 @@ export class AppComponent {
     if (this.electronRenderService) {
       this.title += await this.electronRenderService.callFunction('getSomeData', true);
       this.dbPath = await this.electronRenderService.callFunction('getDbPath', null);
-      this.dbData = JSON.stringify(await this.electronRenderService.callFunction('getDbData', null));
     }
   }
 

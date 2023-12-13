@@ -1,5 +1,6 @@
 /*export interface DonorsAttributes {
-    name: DonorsNameAttributes; // назва
+    donorId:number;
+    donor: DonorsNameAttributes; // назва
     payment_purpose: string; //Призначення платежу
 } */
 
@@ -8,19 +9,24 @@ import { Association, CreationOptional, DataTypes, Model, NonAttribute, Sequeliz
 import { DonorsName } from "./donorsName.model";
 
 export class Donors
-    extends Model<Omit<DonorsAttributes, 'name'>,
+    extends Model<Omit<DonorsAttributes, 'donorName'>,
         Omit<DonorsAttributes, 'id'>> {
     declare id: CreationOptional<number>;
+    declare donorNameId: number;
     declare payment_purpose: string;
 
-    declare name: NonAttribute<DonorsName>;
+    declare donorName: NonAttribute<DonorsName>;
 
     declare static associations: {
-        name: Association<Donors, DonorsName>;
+        donorName: Association<Donors, DonorsName>;
     }
 
     static initModel(sequelize: Sequelize): typeof Donors {
         Donors.init({
+            donorNameId: {
+                type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: false,
+            },
             payment_purpose: {
                 type: DataTypes.STRING,
                 allowNull: false,

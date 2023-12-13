@@ -12,7 +12,9 @@ function getRenderInvoke(): FunctionMapInvoke {
     const arrayHandels: Array<TypesInputKeysInvoke> = [
         "getSomeData",
         "getDbPath",
-        "getDbData"
+        "getReceiptAmountNames",
+        "getCurrencyNames",
+        "getDonorsNames"
     ]
     arrayHandels.forEach(element => {
         obj[element] = (arrgument: TypesInputInvoke[typeof element]) =>

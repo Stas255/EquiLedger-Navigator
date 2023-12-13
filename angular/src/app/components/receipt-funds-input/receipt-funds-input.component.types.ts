@@ -1,5 +1,5 @@
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
-import { AccountingEntryAttributes, CurrencySaleProceedsAttributes, DonorsAttributes, DonorsNameAttributes, ReceiptAmountAttributes, ReceiptAmountNameAttributes, ReceiptFundsAttributes, СurrencyNameAttributes } from 'Types/sequelizeDBTypes';
+import { AccountingEntryAttributes, CurrencySaleProceedsAttributes, DonorsAttributes, DonorsNameAttributes, ReceiptAmountAttributes, ReceiptAmountNameAttributes, ReceiptFundsAttributes, CurrencyNameAttributes } from 'Types/sequelizeDBTypes';
 
 export type ToForm<OriginalType> = {
   [key in keyof OriginalType]: OriginalType[key] extends Array<infer ArrayType>
@@ -18,7 +18,7 @@ export type ToForm<OriginalType> = {
 export type ReceiptFundsAttributesForm = ToForm<ReceiptFundsAttributes>;
 export type ReceiptAmountAttributesForm = ToForm<ReceiptAmountAttributes>;
 export type ReceiptAmountNameAttributesForm = ToForm<ReceiptAmountNameAttributes>;
-export type СurrencyNameAttributesForm = ToForm<СurrencyNameAttributes>;
+export type CurrencyNameAttributesForm = ToForm<CurrencyNameAttributes>;
 export type DonorsAttributesForm = ToForm<DonorsAttributes>;
 export type DonorsNameAttributesForm = ToForm<DonorsNameAttributes>;
 export type CurrencySaleProceedsAttributesForm = ToForm<CurrencySaleProceedsAttributes>;

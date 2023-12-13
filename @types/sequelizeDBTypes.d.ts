@@ -17,32 +17,40 @@ export interface ReceiptFundsAttributes {
 
 //Сума надходження
 export interface ReceiptAmountAttributes {
-    receipt: ReceiptAmountNameAttributes; // квитанція
-    currency: СurrencyNameAttributes; //валюта
+    receiptNameId: number;
+    receiptName?: ReceiptAmountNameAttributes; // квитанція
+    currencyNameId: number;
+    currencyName?: CurrencyNameAttributes; //валюта
     amount: number; //сума float
-    amount_at_nbu_exchange_rate: number; //Сума за курсом НБУ float
-    nbu_exchange_rate: number; //Курс НБУ під час створення float
+    amount_at_nbu_exchange_rate?: number; //Сума за курсом НБУ float
+    nbu_exchange_rate?: number; //Курс НБУ під час створення float
 }
 
 //cума надходження назва
 export interface ReceiptAmountNameAttributes {
-    name: string; // АТ "УНІВЕРСАЛ БАНК" UA683220010000026009490001143 | АТ КБ "ПРИВАТБАНК" UA483375460000026001015201967 | АТ КБ "ПРИВАТБАНК" UA063375460000026009035200553
+    id: number;
+    name: 'АТ "УНІВЕРСАЛ БАНК" UA683220010000026009490001143' |
+    'АТ КБ "ПРИВАТБАНК" UA483375460000026001015201967' |
+    'АТ КБ "ПРИВАТБАНК" UA063375460000026009035200553'; // АТ "УНІВЕРСАЛ БАНК" UA683220010000026009490001143 | АТ КБ "ПРИВАТБАНК" UA483375460000026001015201967 | АТ КБ "ПРИВАТБАНК" UA063375460000026009035200553
 }
 
 //валюта
-export interface СurrencyNameAttributes {
-    currencyName: string; // гривня | долар
+export interface CurrencyNameAttributes {
+    id: number;
+    currencyName: "гривня" | "долар"; // гривня | долар
 }
 
 //Благодійники
 export interface DonorsAttributes {
-    name: DonorsNameAttributes; // назва
+    donorNameId: number;
+    donorName?: DonorsNameAttributes; // назва
     payment_purpose: string; //Призначення платежу
 }
 
 //Благодійники назва
 export interface DonorsNameAttributes {
-    type: string // фізична особа | юридична особа | грантодавці
+    id: number;
+    name: 'фізична особа' | 'юридична особа' | 'грантодавці'; // фізична особа | юридична особа | грантодавці
 }
 
 //Надходження від продажу валюти

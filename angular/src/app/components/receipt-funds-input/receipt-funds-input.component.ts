@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AccountingEntryAttributesForm, CurrencySaleProceedsAttributesForm, DonorsAttributesForm, ReceiptAmountAttributesForm, ReceiptFundsAttributesForm } from './receipt-funds-input.component.types';
 import { ValidationService } from '../../service/validation/validation.service';
+import { DataStorageService } from '../../service/data-storage/data-storage.service';
+import { CurrencyNameAttributes, DonorsNameAttributes, ReceiptAmountNameAttributes } from 'Types/sequelizeDBTypes';
 @Component({
   selector: 'app-receipt-funds-input',
   templateUrl: './receipt-funds-input.component.html',
@@ -11,25 +13,23 @@ import { ValidationService } from '../../service/validation/validation.service';
 export class ReceiptFundsInputComponent {
   receiptFundsForm: FormGroup<ReceiptFundsAttributesForm>;
 
-  constructor(private validationService: ValidationService) {
+  listReceiptAmountNames: ReceiptAmountNameAttributes[] = [];
+  listCurrencyNames: CurrencyNameAttributes[] = [];
+  listDonorsNames: DonorsNameAttributes[] = [];
+  
+  constructor(private validationService: ValidationService, private dataStorageService: DataStorageService) {
     this.receiptFundsForm = new FormGroup<ReceiptFundsAttributesForm>({
       date: new FormControl(new Date(), Validators.required),
       input_document_number: new FormControl('', Validators.required),
       receipt_amount: new FormGroup<ReceiptAmountAttributesForm>({
-        receipt: new FormGroup({
-          name: new FormControl('', Validators.required),
-        }),
-        currency: new FormGroup({
-          currencyName: new FormControl('гривня', Validators.required),
-        }),
+        receiptNameId: new FormControl(1, Validators.required),
+        currencyNameId: new FormControl(1, Validators.required),
         amount: new FormControl(0, [Validators.required, Validators.min(0)]),
         amount_at_nbu_exchange_rate: new FormControl({ value: null, disabled: true }, [Validators.min(0)]),
         nbu_exchange_rate: new FormControl({ value: null, disabled: true }, [Validators.min(0)])
       }),
       donors: new FormGroup<DonorsAttributesForm>({
-        name: new FormGroup({
-          type: new FormControl('фізична особа', Validators.required),
-        }),
+        donorNameId: new FormControl(1, Validators.required),
         payment_purpose: new FormControl('', Validators.required)
       }),
       currency_sale_proceeds: new FormGroup<CurrencySaleProceedsAttributesForm>({
@@ -45,21 +45,30 @@ export class ReceiptFundsInputComponent {
     this.setupCurrencyListener();
   }
 
+  ngOnInit() {
+    this.listReceiptAmountNames = this.dataStorageService.listReceiptAmountNames;
+    this.listCurrencyNames = this.dataStorageService.listCurrencyNames;
+    this.listDonorsNames = this.dataStorageService.listDonorsNames;
+  }
+
   private setupCurrencyListener() {
-    const currencyControl = this.receiptFundsForm.get('receipt_amount.currency.currencyName');
+    const currencyControl = this.receiptFundsForm.get('receipt_amount.currencyNameId');
 
     currencyControl?.valueChanges.subscribe(currency => {
-      if (currency === 'гривня') {
-        this.receiptFundsForm.get('receipt_amount.amount_at_nbu_exchange_rate')?.setValue(null);
-        this.receiptFundsForm.get('receipt_amount.nbu_exchange_rate')?.setValue(null);
-      }else{
-        this.receiptFundsForm.get('receipt_amount.amount_at_nbu_exchange_rate')?.setValue(0);
-        this.receiptFundsForm.get('receipt_amount.nbu_exchange_rate')?.setValue(0);
+      if(currency){
+        console.log(this.dataStorageService.findCurrencyNameById(currency));
+        if (this.dataStorageService.findCurrencyNameById(currency) === 'гривня') {
+          this.receiptFundsForm.get('receipt_amount.amount_at_nbu_exchange_rate')?.setValue(null);
+          this.receiptFundsForm.get('receipt_amount.nbu_exchange_rate')?.setValue(null);
+        } else {
+          this.receiptFundsForm.get('receipt_amount.amount_at_nbu_exchange_rate')?.setValue(0);
+          this.receiptFundsForm.get('receipt_amount.nbu_exchange_rate')?.setValue(0);
+        }
+        const state = this.dataStorageService.findCurrencyNameById(currency) === 'гривня' ? 'disable' : 'enable';
+  
+        this.receiptFundsForm.get('receipt_amount.amount_at_nbu_exchange_rate')?.[state]();
+        this.receiptFundsForm.get('receipt_amount.nbu_exchange_rate')?.[state]();
       }
-      const state = currency === 'гривня' ? 'disable' : 'enable';
-
-      this.receiptFundsForm.get('receipt_amount.amount_at_nbu_exchange_rate')?.[state]();
-      this.receiptFundsForm.get('receipt_amount.nbu_exchange_rate')?.[state]();
     });
 
   }

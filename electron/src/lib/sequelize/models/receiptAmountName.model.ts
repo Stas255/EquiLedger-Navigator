@@ -6,7 +6,7 @@ import { ReceiptAmountNameAttributes } from "Types/sequelizeDBTypes";
 import { CreationOptional, DataTypes, Model, Sequelize } from "sequelize";
 
 export class ReceiptAmountName
-    extends Model<ReceiptAmountNameAttributes,
+    extends Model<Omit<ReceiptAmountNameAttributes, 'id'>,
         Omit<ReceiptAmountNameAttributes, 'id'>> {
     declare id: CreationOptional<number>;
     declare name: string;

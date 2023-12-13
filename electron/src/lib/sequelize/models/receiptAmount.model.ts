@@ -1,10 +1,12 @@
 import { ReceiptAmountAttributes } from "Types/sequelizeDBTypes";
 import { Association, CreationOptional, DataTypes, Model, NonAttribute, Sequelize } from "sequelize";
 import { ReceiptAmountName } from "./receiptAmountName.model";
-import { СurrencyName } from "./currencyName.model";
+import { CurrencyName } from "./currencyName.model";
 
 /*export interface ReceiptAmountAttributes {
+    receiptId: number;
     receipt: ReceiptAmountNameAttributes; // квитанція
+    currencyId: number;
     currency: СurrencyNameAttributes; //валюта
     amount: number; //сума float
     amount_at_nbu_exchange_rate: number; //Сума за курсом НБУ float
@@ -17,20 +19,30 @@ export class ReceiptAmount
         Omit<ReceiptAmountAttributes, 'id'>> {
 
     declare id: CreationOptional<number>;
+    declare receiptNameId: number;
+    declare currencyNameId: number;
     declare amount: number;
     declare amount_at_nbu_exchange_rate: number;
     declare nbu_exchange_rate: number;
 
-    declare receipt: NonAttribute<ReceiptAmountName>;
-    declare currency: NonAttribute<СurrencyName>;
+    declare receiptName: NonAttribute<ReceiptAmountName>;
+    declare currencyName: NonAttribute<CurrencyName>;
 
     declare static associations: {
-        receipt: Association<ReceiptAmount, ReceiptAmountName>;
-        currency: Association<ReceiptAmount, СurrencyName>;
+        receiptName: Association<ReceiptAmount, ReceiptAmountName>;
+        currencyName: Association<ReceiptAmount, CurrencyName>;
     };
 
     static initModel(sequelize: Sequelize): typeof ReceiptAmount {
         ReceiptAmount.init({
+            receiptNameId: {
+                type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: false,
+            },
+            currencyNameId: {
+                type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: false,
+            },
             amount: {
                 type: DataTypes.NUMBER,
                 allowNull: false,

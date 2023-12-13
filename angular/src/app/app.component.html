@@ -1,6 +1,8 @@
 <mat-toolbar color="primary">
   <span>My Application</span>
   <span class="toolbar-spacer"></span>
+  <button mat-raised-button [routerLink]="['/main']">Головна</button>
+  <span class="toolbar-spacer"></span>
   <app-db-status [dbInfo]="currentDbStatus"></app-db-status>
   <span class="toolbar-spacer"></span>
   <mat-icon *ngIf="errorCount > 0" [matBadge]="errorCount" matBadgeSize="small" matBadgeColor="warn" (click)="showErrors()" aria-hidden="false">error</mat-icon>

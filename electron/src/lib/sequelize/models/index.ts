@@ -1,6 +1,6 @@
 import { Donors } from './donors.model';
 import { AccountingEntry } from './accountingEntry.model';
-import { СurrencyName } from './currencyName.model';
+import { CurrencyName } from './currencyName.model';
 import { CurrencySaleProceeds } from './currencySaleProceeds.model';
 import { DonorsName } from './donorsName.model';
 import { ReceiptAmount } from './receiptAmount.model';
@@ -13,7 +13,7 @@ export = {
     ReceiptFunds,
     ReceiptAmount,
     ReceiptAmountName,
-    СurrencyName,
+    CurrencyName: CurrencyName,
     Donors,
     DonorsName,
     CurrencySaleProceeds,

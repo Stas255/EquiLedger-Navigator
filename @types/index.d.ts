@@ -1,17 +1,21 @@
 import { ErrorDetail } from "./error";
-import { DbInfo } from "./sequelizeDBTypes";
+import { DbInfo, ReceiptAmountNameAttributes, CurrencyNameAttributes, DonorsNameAttributes } from "./sequelizeDBTypes";
 
 //----------IPC INVOKE Angular->INVOKE Electron->RETURN------------------------------//
 export type TypesInputInvoke = {
     getSomeData: boolean,
     getDbPath: null,
-    getDbData: null,
+    getReceiptAmountNames: null,
+    getCurrencyNames: null,
+    getDonorsNames: null,
 }
 
 export type TypesReturnInvoke = {
     getSomeData: number,
     getDbPath: string,
-    getDbData: UserAttributes,
+    getReceiptAmountNames: ReceiptAmountNameAttributes[],
+    getCurrencyNames: CurrencyNameAttributes[],
+    getDonorsNames: DonorsNameAttributes[],
 }
 
 export type TypesInputKeysInvoke = keyof TypesInputInvoke;

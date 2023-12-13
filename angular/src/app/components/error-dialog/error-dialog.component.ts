@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ErrorDetail } from 'Types/error';
-import { ErrorService } from '../service/error/error.service';
+import { ErrorService } from '../../service/error/error.service';
 import { PageEvent } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 

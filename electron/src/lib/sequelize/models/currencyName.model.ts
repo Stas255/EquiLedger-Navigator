@@ -2,17 +2,17 @@
     currencyName: string; // гривня | долар
 } */
 
-import { ReceiptAmountNameAttributes, СurrencyNameAttributes } from "Types/sequelizeDBTypes";
+import { ReceiptAmountNameAttributes, CurrencyNameAttributes } from "Types/sequelizeDBTypes";
 import { CreationOptional, DataTypes, Model, Sequelize } from "sequelize";
 
-export class СurrencyName
-    extends Model<СurrencyNameAttributes,
-        Omit<СurrencyNameAttributes, 'id'>> {
+export class CurrencyName
+    extends Model<Omit<CurrencyNameAttributes, 'id'>,
+        Omit<CurrencyNameAttributes, 'id'>> {
     declare id: CreationOptional<number>;
-    declare name: string;
+    declare currencyName: string;
 
-    static initModel(sequelize: Sequelize): typeof СurrencyName {
-        СurrencyName.init({
+    static initModel(sequelize: Sequelize): typeof CurrencyName {
+        CurrencyName.init({
             currencyName: {
                 type: DataTypes.STRING,
                 validate: {
@@ -23,6 +23,6 @@ export class СurrencyName
             sequelize, // передача екземпляру sequelize
         });
 
-        return СurrencyName;
+        return CurrencyName;
     }
 }
